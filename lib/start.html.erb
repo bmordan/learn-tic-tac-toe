@@ -4,7 +4,7 @@
     </head>
     <body class="flex flex-column items-center justify-center sans-serif">
         <% unless @game_over_message.empty? %>
-            <h1 class="mv0"><%= @game_over_message %></h1>
+            <h1 class="mv0 flex flex-column flex-auto justify-center"><%= @game_over_message %></h1>
         <% end %>
         <table>
             <% @board.each_slice(3) do |row| %>
@@ -22,7 +22,7 @@
             <% end %>
         </table>
             <% unless @game_over_message.empty? %>
-            <h2 class="mv0"><a href="?play=-1">Play Again</a></h2>
+            <h2 class="mv0 flex flex-column flex-auto justify-center"><a href="?play=-1">Play Again</a></h2>
         <% end %>
     </body>
 </html>
