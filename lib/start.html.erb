@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    </head>
+    <body class="flex flex-column items-center justify-center sans-serif">
+        <% unless @game_over_message.empty? %>
+            <h1 class="mv0"><%= @game_over_message %></h1>
+        <% end %>
+        <table>
+            <% @board.each_slice(3) do |row| %>
+                <tr>
+                    <% row.each do |cell| %>
+                        <td class="pa3 pointer ba b--gray gray">
+                          <% if cell.is_a?(Integer) %>
+                            <a href="?play=<%= cell.to_s %>">&nbsp;&nbsp;&nbsp;</a>
+                          <% else %>
+                            <%= cell %>
+                          <% end %>
+                        </td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </table>
+            <% unless @game_over_message.empty? %>
+            <h2 class="mv0"><a href="?play=-1">Play Again</a></h2>
+        <% end %>
+    </body>
+</html>
